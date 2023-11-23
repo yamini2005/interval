@@ -1,0 +1,16 @@
+def print_elements_within_interval(arr, start, end):
+    interval = arr[start:end + 1]  # Extract elements within the specified interval
+    sorted_interval = sorted(interval, reverse=True)  # Sort the interval in descending order
+    arr[start:end + 1] = sorted_interval  # Replace the elements in the original list with the sorted interval
+    return arr
+
+# Taking input from the user
+n = int(input("Enter the number of elements: "))
+elements = list(map(int, input("Enter the elements separated by space: ").split()))
+start_interval, end_interval = map(int, input("Enter the start and end of the interval (inclusive): ").split())
+
+# Printing the output
+print(" ".join(str(i) for i in range(len(elements))))  # Printing the indices
+print(" ".join(str(i) for i in elements))  # Printing the original elements
+result = print_elements_within_interval(elements, start_interval, end_interval)
+print(" ".join(str(i) for i in result))  # Printing the elements after sorting within the interval
